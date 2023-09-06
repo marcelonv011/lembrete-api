@@ -22,11 +22,11 @@ public class PessoaService {
     }
 
     @Transactional
-    public void atualizaPessoa(final Long id, Pessoa pessoa){
+    public Pessoa atualizaPessoa(final Long id, Pessoa pessoa){
 
         final Pessoa pessoaBanco = this.pessoaRepository.findById(id).orElse(null);
 
-        this.pessoaRepository.save(pessoa);
+        return this.pessoaRepository.save(pessoa);
     }
 
 }

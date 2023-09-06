@@ -25,7 +25,7 @@ public class PessoaTest {
 
     @BeforeEach
     void injectData() {
-        Pessoa pessoa = new Pessoa(1L, "Marce");
+        Pessoa pessoa = new Pessoa(1L, "Marcelo");
 
         Mockito.when(pessoaRepository.save(pessoa)).thenReturn(pessoa);
 
@@ -48,9 +48,15 @@ public class PessoaTest {
     }
 
     @Test
-    public void TestAtualizarPessoa() {
+    public void testAtualizarPessoa() {
 
+        Long id = 1L;
+        Pessoa personaAtualizada = new Pessoa(id, "Pedro");
 
+        pessoaService.atualizaPessoa(id, personaAtualizada);
 
+        Assertions.assertEquals("Pedro", personaAtualizada.getNome());
     }
+
+
 }
