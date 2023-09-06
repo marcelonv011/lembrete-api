@@ -1,6 +1,5 @@
 package br.com.uniamerica.lembrete.lembreteapi;
 
-import br.com.uniamerica.lembrete.lembreteapi.controller.PessoaController;
 import br.com.uniamerica.lembrete.lembreteapi.entity.Pessoa;
 import br.com.uniamerica.lembrete.lembreteapi.repository.PessoaRepository;
 import br.com.uniamerica.lembrete.lembreteapi.service.PessoaService;
@@ -10,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.util.Assert;
+
 
 import java.util.Optional;
 

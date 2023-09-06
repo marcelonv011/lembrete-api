@@ -26,10 +26,10 @@ public class LembreteService {
     public Pessoa buscarPessoaPorNome(String nomePessoa) {
         return pessoaRepository.findByNome(nomePessoa);
     }
-     @Transactional
-    public void cadastraLembrete(Lembrete lembrete){
-         this.lembreteRepository.save(lembrete);
 
+     @Transactional
+    public Lembrete cadastraLembrete(Lembrete lembrete){
+         return this.lembreteRepository.save(lembrete);
      }
 
      @Transactional

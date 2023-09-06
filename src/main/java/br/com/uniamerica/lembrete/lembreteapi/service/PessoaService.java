@@ -5,8 +5,10 @@ import br.com.uniamerica.lembrete.lembreteapi.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PessoaService {
@@ -22,11 +24,11 @@ public class PessoaService {
     }
 
     @Transactional
-    public Pessoa atualizaPessoa(final Long id, Pessoa pessoa){
+    public void atualizaPessoa(final Long id, Pessoa pessoa){
 
         final Pessoa pessoaBanco = this.pessoaRepository.findById(id).orElse(null);
 
-        return this.pessoaRepository.save(pessoa);
+        this.pessoaRepository.save(pessoa);
     }
 
 }
