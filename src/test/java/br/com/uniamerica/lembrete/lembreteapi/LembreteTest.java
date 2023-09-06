@@ -14,6 +14,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,7 @@ public class LembreteTest {
 
         Mockito.when(lembreteRepository.findById(1L)).thenReturn(Optional.of(lembrete));
         Mockito.when(lembreteService.buscarLembretesPorNomePessoa("Persona1")).thenReturn(List.of(lembrete));
+        Mockito.when(lembreteRepository.findAll()).thenReturn(Arrays.asList(lembrete));
     }
 
     @Test
@@ -56,7 +58,13 @@ public class LembreteTest {
         Assertions.assertEquals("lembrete1", lembretes.get(0).getNome());
     }
 
-
+    @Test
+    public void testListaLembrete() {
+        List<Lembrete> resultado = lembreteRepository.findAll();
+        System.out.println(resultado.size());
+        Assertions.assertNotNull(resultado);
+        Assertions.assertEquals(1, resultado.size());
+    }
     @Test
     public void testControllerLembrete() {
         var lembreteTest = lembreteRepository.findById(1L);
