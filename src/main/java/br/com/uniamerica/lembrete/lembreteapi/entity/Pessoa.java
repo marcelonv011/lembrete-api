@@ -18,7 +18,7 @@ public class Pessoa {
     private Long id;
 
     @Getter @Setter
-    @Column(name = "id", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @ManyToMany(mappedBy = "pessoas")
@@ -26,9 +26,9 @@ public class Pessoa {
 
     public Pessoa(){}
 
-    public Pessoa(Long id, String nome, List<Lembrete> lembretes) {
+    public Pessoa(Long id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.lembretes = lembretes;
     }
+
 }

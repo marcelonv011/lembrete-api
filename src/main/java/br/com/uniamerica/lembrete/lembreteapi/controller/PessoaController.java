@@ -32,15 +32,7 @@ public class PessoaController {
                 ? ResponseEntity.badRequest().body("Ningun valor encontrado.")
                 : ResponseEntity.ok(pessoa);
     }
-    @GetMapping
-    public ResponseEntity<?> findByIdRequest(
-            @RequestParam("id") final long id
-    ){
-        final Pessoa pessoa = this.pessoaRepository.findById(id).orElse(null);
-        return pessoa == null
-                ? ResponseEntity.badRequest().body("Ningun valor encontrado.")
-                : ResponseEntity.ok(pessoa);
-    }
+
 
     @PostMapping
     public  ResponseEntity<?> cadastrar(@RequestBody final Pessoa pessoa){

@@ -19,7 +19,7 @@ public class LembreteController {
     @Autowired
     private LembreteRepository lembreteRepository;
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<?> listaCompleta(){
         return ResponseEntity.ok(this.lembreteRepository.findAll());
     }
@@ -35,15 +35,7 @@ public class LembreteController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<?> findByIdRequest(
-            @RequestParam("id") final long id
-    ){
-        final Lembrete lembrete = this.lembreteRepository.findById(id).orElse(null);
-        return lembrete == null
-                ? ResponseEntity.badRequest().body("Ningun valor encontrado.")
-                : ResponseEntity.ok(lembrete);
-    }
+    
 
     @PostMapping
     public  ResponseEntity<?> cadastrar(@RequestBody final Lembrete lembrete){
