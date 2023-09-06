@@ -15,8 +15,10 @@ public class PessoaService {
     private PessoaRepository pessoaRepository;
 
     @Transactional
-    public void cadastraPessoa(Pessoa pessoa){
-        this.pessoaRepository.save(pessoa);
+    public Pessoa cadastraPessoa(Pessoa pessoa){
+
+        return this.pessoaRepository.save(pessoa);
+
     }
 
     @Transactional

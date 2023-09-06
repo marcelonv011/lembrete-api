@@ -25,7 +25,7 @@ public class PessoaTest {
 
     @BeforeEach
     void injectData() {
-        Pessoa pessoa = new Pessoa(1L, "Marcelo");
+        Pessoa pessoa = new Pessoa(1L, "Marce");
 
         Mockito.when(pessoaRepository.save(pessoa)).thenReturn(pessoa);
 
@@ -38,5 +38,19 @@ public class PessoaTest {
         Long id = pessoaTest.get().getId();
 
         Assertions.assertEquals(pessoaTest, pessoaRepository.findById(id));
+    }
+
+    @Test
+    public void TestcadastraPessoa() {
+
+        Assertions.assertEquals(pessoaRepository.save(new Pessoa(1L, "Marcelo")), pessoaService.cadastraPessoa(new Pessoa(1L, "Marcelo")));
+
+    }
+
+    @Test
+    public void TestAtualizarPessoa() {
+
+
+
     }
 }
