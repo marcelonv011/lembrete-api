@@ -11,6 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
@@ -29,6 +32,16 @@ public class PessoaTest {
         Mockito.when(pessoaRepository.save(pessoa)).thenReturn(pessoa);
 
         Mockito.when(pessoaRepository.findById(1L)).thenReturn(Optional.of(pessoa));
+
+        Mockito.when(pessoaRepository.findAll()).thenReturn(Arrays.asList(pessoa));
+    }
+
+    @Test
+    public void testListaPessoa() {
+        List<Pessoa> resultado = pessoaRepository.findAll();
+        System.out.println(resultado.size());
+        Assertions.assertNotNull(resultado);
+        Assertions.assertEquals(1, resultado.size());
     }
 
     @Test
